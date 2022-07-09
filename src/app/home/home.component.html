@@ -1,0 +1,23 @@
+<div class="text-center">
+    <h2 class="text-info pt-5">Welcome To TODO!!</h2>
+</div>
+<div>
+    <form class="modal-content animate border-0 shadow-sm" [formGroup]="loginForm" (ngSubmit)="loginFunction(username.value,password.value)">
+        <div class="imgcontainer">
+          <img src="../../assets/images/4957136.jpg" alt="Avatar" class="avatar">
+        </div>
+    
+        <div class="container">
+          <label for="uname"><b class="text-default">Username</b></label>
+          <input type="text" class="border-0 shadow-sm" placeholder="Enter Username" id="username" name="username" #username formControlName="uname" required>
+    
+          <label for="psw"><b class="text-default">Password</b></label>
+          <input type="password" class="border-0 shadow-sm"id="password" name="password" #password formControlName="password" placeholder="Enter Password" required>
+            
+          <button type="submit" class="btn">Login</button>
+          <label>
+            <input type="checkbox" checked="checked" name="remember"> Remember me
+          </label>
+        </div>
+      </form>
+</div>

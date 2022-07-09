@@ -1,0 +1,61 @@
+<div class="container pt-5">
+    <table  class="table table-striped rounded">
+        <thead>
+            <tr class="bg-danger p-5">
+                <th class="py-3">User ID</th>
+                <th class="py-3">ID</th>
+                <th class="py-3">Title</th>
+                <th class="py-3">Completed</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let todo of todos | paginate: { itemsPerPage: 8, currentPage: p }">
+                <td>
+                    <button class="btn btn-default" (click)="todoInfo(content1)">{{todo.userId}}</button>
+                </td>
+                <td>
+                    <button class="btn btn-default" (click)="todoInfo(content1)">{{todo.id}}</button>
+                </td>
+                <td>
+                    <button class="btn btn-default" (click)="todoInfo(content1)">{{todo.title}}</button>
+                </td>
+                <td>
+                    <button class="btn btn-default" (click)="todoInfo(content1)">{{todo.completed}}</button>
+                </td>  
+                
+                <ng-template #content1 let-modal>
+                    <div class="modal-header bg-info text-white">
+                      <h5 class="modal-title" id="personalInfo">Todo Information</h5>
+                      <button type="button" class="close bg-info border-0" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                        <span aria-hidden="true" class="text-white">&times;</span>
+                    </button>
+                    </div>
+                    <div class="modal-body text-color">
+                      <div class="row pb-3">
+                        <div class="col-5">User ID</div>
+                        <div class="col-1">:</div>
+                        <div class="text-color-light col-6">{{todo.userId}}</div>
+                      </div>
+                      <div class="row pb-3">
+                        <div class="col-5">ID</div>
+                        <div class="col-1">:</div>
+                        <div class="text-color-light col-6">{{todo.id}}</div>
+                      </div>
+                      <div class="row pb-3">
+                        <div class="col-5">Title</div>
+                        <div class="col-1">:</div>
+                        <div class="text-color-light col-6">{{todo.title}}</div>
+                      </div>
+                      <div class="row pb-3">
+                        <div class="col-5">Completed</div>
+                        <div class="col-1">:</div>
+                        <div class="text-color-light col-6">{{todo.completed}}</div>
+                      </div>
+                    </div>
+                  </ng-template>         
+            </tr>
+        </tbody>
+        
+    </table>
+    <pagination-controls (pageChange)="p = $event" class="d-flex justify-content-center"></pagination-controls>
+</div>
